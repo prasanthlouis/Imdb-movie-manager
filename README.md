@@ -4,7 +4,7 @@ Imdb-movie-manager
 Sorts your movies into folders based on IMDB rating
 
 This will sort your movies into folders based on the IMDB rating.
-First of all, put all your movies into a single folder. (Please don't use any subfolders)
+First of all, put all your movies into a single folder.
 
 Next take the movie.cmd and paste it into your "send to" folder. 
 Simply type 'shell:sendto' in your address bar and paste it in there.
