@@ -17,7 +17,7 @@ def find(folder):
 		if (re.search('^\s*[4-9]',x)):
 			continue
 		'''
-		#I found this easier to implement though.
+		#I found this easier to implement though. (I removed the dirty code)
 		if(x[0].isdigit() and x[0]>4):
 			continue
 		moviename=folder+'//'+x
