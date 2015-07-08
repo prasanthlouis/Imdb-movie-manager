@@ -11,6 +11,7 @@ values=['.','[',']','(',')','m720p','480p','480','DVDSCR','BrRip','New Source','
 ,'DVD','dvd','DVDRip','RIP','rip','Rip','Back In Action']
 def find(folder):
 	for x in os.listdir(folder):
+		#Edit to Regular Expression
 		if(x.startswith("4") or x.startswith("5") or x.startswith("6") or x.startswith("7") or x.startswith("8") or x.startswith("9")):
 			continue
 		moviename=folder+'//'+x
