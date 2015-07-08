@@ -3,6 +3,7 @@ import urllib
 import json
 import shutil
 import os
+import re
 w=1
 q=1
 e=1
@@ -11,8 +12,13 @@ values=['.','[',']','(',')','m720p','480p','480','DVDSCR','BrRip','New Source','
 ,'DVD','dvd','DVDRip','RIP','rip','Rip','Back In Action']
 def find(folder):
 	for x in os.listdir(folder):
-		#Edit to Regular Expression
-		if(x.startswith("4") or x.startswith("5") or x.startswith("6") or x.startswith("7") or x.startswith("8") or x.startswith("9")):
+		#Edit to Regular Expression (Uncomment it if you want to use it.)
+		'''
+		if (re.search('^\s*[4-9]',x)):
+			continue
+		'''
+		#I found this easier to implement though.
+		if(x[0].isdigit() and x[0]>4):
 			continue
 		moviename=folder+'//'+x
 		for y in range(1500,2100):
@@ -29,7 +35,7 @@ def find(folder):
 		if jsonvalues["Response"]=="True":
 			imdbrating = jsonvalues['imdbRating']
 			print imdbrating+" "+x
-			destinationDir = 'D:\movies\\'+ imdbrating
+			destinationDir = 'F:\movies\\'+ imdbrating
 			if not os.path.exists(destinationDir): 
 				os.makedirs(destinationDir)
 			shutil.move(moviename, destinationDir)
@@ -49,7 +55,7 @@ def find(folder):
 					if jsonvalues["Response"]=="True":
 						imdbrating = jsonvalues['imdbRating']
 						print imdbrating+" "+x
-						destinationDir = 'D:\movies\\'+ imdbrating
+						destinationDir = 'F:\movies\\'+ imdbrating
 						if not os.path.exists(destinationDir): 
 							os.makedirs(destinationDir)
 						shutil.move(moviename, destinationDir)
@@ -65,4 +71,4 @@ def find(folder):
 	
 	
 
-find('D:\movies')
+find('F:\movies')
